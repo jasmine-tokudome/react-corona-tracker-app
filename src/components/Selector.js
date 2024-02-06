@@ -1,4 +1,7 @@
+import countriesJson from '../countries.json';
+
 const Selector = () => {
+  console.log(countriesJson);
   return(
     <div>
       <select>

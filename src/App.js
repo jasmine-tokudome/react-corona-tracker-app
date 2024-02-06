@@ -1,6 +1,4 @@
 import TopPage from "./pages/TopPage";
-
-impot TopPahe from './TopPage';
 import './App.css';
 
 function App() {
