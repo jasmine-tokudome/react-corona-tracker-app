@@ -1,10 +1,10 @@
 import TopPage from "./pages/TopPage";
 import './App.css';
+import Selector from "./components/Selector";
 
 function App() {
   return (
     <div>
-      <h1>こんばんは</h1>
       <TopPage />
     </div>
   );
