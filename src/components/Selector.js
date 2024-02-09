@@ -1,12 +1,11 @@
+import {useState} from 'react';
 import countriesJson from '../countries.json';
 
 const Selector = () => {
-  countriesJson.map((country) =>
-    console.log(country)
-  )
+  const[country, setCountry] = useState('');
   return(
     <div>
-      <select>
+      <select onChange = {(e)=> setCountry(e.target.value)}>
         {countriesJson.map((country,index) =>
           <option key={index}>{country.Country}</option>
         )}
