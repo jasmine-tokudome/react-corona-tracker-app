@@ -6,10 +6,18 @@ import Selector from "./components/Selector";
 
 function App() {
   const[country, setCountry] = useState("");
+  const[countryDate, setCountryDate] = useState({
+    date: "",
+    newConfirmed: "",
+    totalConfirmed: "",
+    newRecovered: "",
+    totalRecovered: "",
+  });
+
   const getCountryDate =  () => {
     fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
       .then(res=>res.json())
-      .then(date=>console.log(date))
+      .then(date=>console.log(date.length-1))
   }
 
   return (
