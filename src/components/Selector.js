@@ -7,7 +7,7 @@ const Selector = (props) => {
           <option key={index} value={country.Slug}>{country.Country}</option>
         )}
       </select>
-      <button onClick={props.getCountryDate}>Get Data</button>
+      <button onClick={props.getCountryData}>Get Data</button>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const TopPage = (props) => {
   return (
     <div>
       <Title />
-      <Selector countriesJson={props.countriesJson} setCountry={props.setCountry} getCountryDate={props.getCountryDate}/>
+      <Selector countriesJson={props.countriesJson} setCountry={props.setCountry} getCountryData={props.getCountryData}/>
       <Results />
     </div>
   );
