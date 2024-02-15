@@ -2,7 +2,6 @@ import {useState} from "react";
 import countriesJson from './countries.json';
 import TopPage from "./pages/TopPage";
 import './App.css';
-import Selector from "./components/Selector";
 
 function App() {
   const [country, setCountry] = useState("");
