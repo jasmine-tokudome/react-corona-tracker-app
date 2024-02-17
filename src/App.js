@@ -2,6 +2,7 @@ import {useState} from "react";
 import countriesJson from './countries.json';
 import TopPage from "./pages/TopPage";
 import './App.css';
+import {Route, Routes, BrowserRouter} from "react-router-dom";
 
 function App() {
   const [country, setCountry] = useState("");
@@ -27,9 +28,11 @@ function App() {
       })
   }
   return (
-    <div>
-      <TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
