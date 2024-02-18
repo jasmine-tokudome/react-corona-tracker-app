@@ -31,7 +31,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>} />
-    </Routes>
+          <Route path={"/world"} element={<p>ワールド</p>}/>
+      </Routes>
     </BrowserRouter>
   );
 }
