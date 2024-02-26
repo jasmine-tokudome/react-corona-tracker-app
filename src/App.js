@@ -14,6 +14,7 @@ function App() {
     newRecovered: "",
     totalRecovered: "",
   });
+  const [allCountriesData, setAllCountriesData] = useState([]);
 
   const getCountryData = () => {
     fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
@@ -28,11 +29,16 @@ function App() {
       });
       })
   }
+  const getAllCountriesData = () => {
+    fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
+      .then(res => res.json())
+      .then(data => setAllCountriesData(data.Countries))
+  }
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>} />
-          <Route path={"/world"} element={<WorldPage />}/>
+        <Route path="/world" element={<WorldPage allCountriesData={allCountriesData} getAllCountriesData={getAllCountriesData} />} />
       </Routes>
     </BrowserRouter>
   );
