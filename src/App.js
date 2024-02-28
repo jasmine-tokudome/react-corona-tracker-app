@@ -32,10 +32,11 @@ function App() {
   }
 
   useEffect(() => {
+    console.log("テスト")
       fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
         .then(res => res.json())
         .then(data => setAllCountriesData(data.Countries))
-  });
+  },[]);
 
   return (
     <BrowserRouter>
