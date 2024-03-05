@@ -1,17 +1,17 @@
-const Card = (props) => {
+const Card = ({allCountriesData}) => {
   return (
-    <div>
-      <h2>Card</h2>
-      <button>Get All Data</button>
-      {props.allCountriesData.map((singleData,index) =>
-      <div key={index}>
-        <h2>{singleData.Country}</h2>
-        <p>新規感染者：{singleData.NewConfirmed.toLocaleString()}</p>
-        <p>感染者総数：{singleData.TotalConfirmed.toLocaleString()}</p>
-      </div>
+      <div className="card-container">
+      {allCountriesData.map((singleData,index) =>
+        <div key={index} className={card}>
+          <div>
+            <h2>{singleData.Country}</h2>
+            <p>新規感染者：<span>{singleData.NewConfirmed.toLocaleString()}</span></p>
+            <p>感染者総数：<span>{singleData.TotalConfirmed.toLocaleString()}</span></p>
+          </div>
+        </div>
       )}
-    </div>
-  );
-};
+      </div>
+      );
+      };
 
-export default Card;
+      export default Card;
