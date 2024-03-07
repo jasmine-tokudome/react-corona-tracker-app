@@ -1,3 +1,5 @@
+import Loading from "../components/Loading";
+
 const Results = ({ countryData }) => {
   const { date, newConfirmed, totalConfirmed, newRecovered, totalRecovered } = countryData;
   return (
