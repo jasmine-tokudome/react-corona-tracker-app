@@ -7,6 +7,7 @@ import WorldPage from "./pages/WorldPage";
 import './App.css';
 
 function App() {
+  const [loading,setLoading] = useState(false);
   const [country, setCountry] = useState("");
   const [countryData, setCountryData] = useState({
     date: "",
@@ -18,6 +19,7 @@ function App() {
   const [allCountriesData, setAllCountriesData] = useState([]);
 
   const getCountryData = () => {
+    setLoading(true);
     fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
       .then(res => res.json())
       .then(data => {
@@ -28,6 +30,7 @@ function App() {
           newRecovered: data[data.length-1].Recovered,
           totalRecovered:data[data.length-1].Recovered-data[data.length-2].Recovered
       });
+        setLoading(false);
       })
       .catch(err => alert("エラーが発生しました。ページをリロードしてもう一度トライしてください。"));
   }
@@ -43,7 +46,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>} />
+        <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}/>} loading={loading} />
         <Route path="/world" element={<WorldPage allCountriesData={allCountriesData} getAllCountriesData={getAllCountriesData} />} />
       </Routes>
     </BrowserRouter>

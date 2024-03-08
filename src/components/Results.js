@@ -1,6 +1,6 @@
 import Loading from "../components/Loading";
 
-const Results = ({ countryData }) => {
+const Results = ({ countryData, loading }) => {
   const { date, newConfirmed, totalConfirmed, newRecovered, totalRecovered } = countryData;
   return (
     <div className="results-container">
